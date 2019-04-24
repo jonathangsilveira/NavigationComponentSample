@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/mainFragment">
+
+    <fragment android:id="@+id/mainFragment"
+              android:name="br.edu.jgsilveira.portfolio.navigationcomponent.MainFragment"
+              android:label="fragment_main"
+              tools:layout="@layout/fragment_main">
+
+        <action android:id="@+id/add"
+                app:destination="@id/valueFragment"/>
+        <action android:id="@+id/spends" app:destination="@id/spendsFragment"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/valueFragment"
+              android:name="br.edu.jgsilveira.portfolio.navigationcomponent.ValueFragment"
+              android:label="fragment_value"
+              tools:layout="@layout/fragment_value">
+
+        <action android:id="@+id/descript"
+                app:destination="@id/descriptionFragment"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/descriptionFragment"
+              android:name="br.edu.jgsilveira.portfolio.navigationcomponent.DescriptionFragment"
+              android:label="fragment_description"
+              tools:layout="@layout/fragment_description">
+        <action android:id="@+id/finish_add" app:destination="@id/successFragment"
+                app:popUpTo="@id/descriptionFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/spendsFragment"
+              android:name="br.edu.jgsilveira.portfolio.navigationcomponent.SpendsFragment"
+              android:label="fragment_spends" tools:layout="@layout/fragment_spends"/>
+    <fragment android:id="@+id/successFragment"
+              android:name="br.edu.jgsilveira.portfolio.navigationcomponent.SuccessFragment"
+              android:label="fragment_success" tools:layout="@layout/fragment_success">
+        <action android:id="@+id/back_to_main" app:destination="@id/mainFragment"/>
+    </fragment>
+
+</navigation>
